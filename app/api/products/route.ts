@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import productsData from '@/app/data/products.json'
 
-interface RawProduct {
+interface Product {
   id: string
   name: string
   vendor: string
   productType: string
-  tags: string
+  tags: string[]
   sku: string
   price: number
   compareAtPrice: number | null
@@ -15,6 +15,30 @@ interface RawProduct {
   productUrl: string
   variantCount: number
 }
+
+function normalize(raw: unknown): Product {
+  const r = raw as Record<string, unknown>
+  const tagsRaw = r.tags
+  const tags: string[] = Array.isArray(tagsRaw)
+    ? (tagsRaw as unknown[]).map(String)
+    : String(tagsRaw ?? '').split(',').map(s => s.trim()).filter(Boolean)
+  return {
+    id: String(r.id ?? ''),
+    name: String(r.name ?? ''),
+    vendor: String(r.vendor ?? ''),
+    productType: String(r.productType ?? ''),
+    tags,
+    sku: String(r.sku ?? ''),
+    price: parseFloat(String(r.price ?? '0')) || 0,
+    compareAtPrice: r.compareAtPrice != null ? parseFloat(String(r.compareAtPrice)) || null : null,
+    available: Boolean(r.available),
+    imageUrl: String(r.imageUrl ?? ''),
+    productUrl: String(r.productUrl ?? ''),
+    variantCount: Number(r.variantCount ?? 0),
+  }
+}
+
+const allProducts: Product[] = (productsData as unknown[]).map(normalize)
 
 const TYPE_MAP: Record<string, string> = {
   'Home & Garden': 'HOME & GARDEN',
@@ -48,7 +72,7 @@ export async function GET(req: NextRequest) {
   const aiOnly = searchParams.get('aiOnly') === 'true'
   const pageSize = parseInt(searchParams.get('pageSize') || String(PAGE_SIZE), 10)
 
-  let products = (productsData as RawProduct[]).filter(p => p.available && p.imageUrl)
+  let products = allProducts.filter(p => p.available && p.imageUrl)
 
   // Category filter
   if (category !== 'All') {

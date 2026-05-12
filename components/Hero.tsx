@@ -276,7 +276,7 @@ export default function Hero() {
                     <g key={`out${i}`}>
                       <circle r={active ? 4.5 : 3.5} fill={n.color}
                         style={{ filter: active ? `drop-shadow(0 0 7px ${n.color})` : `drop-shadow(0 0 4px ${n.color})` }}>
-                        {/* @ts-expect-error SVG animateMotion */}
+
                         <animateMotion dur={`${active ? n.dur * 0.6 : n.dur}s`} repeatCount="indefinite" path={path} />
                       </circle>
                       {/* Extra staggered packets when active */}
@@ -284,11 +284,11 @@ export default function Hero() {
                         <>
                           <circle r={3.5} fill={n.color} opacity="0.75"
                             style={{ filter: `drop-shadow(0 0 5px ${n.color})` }}>
-                            {/* @ts-expect-error SVG animateMotion */}
+    
                             <animateMotion dur={`${n.dur * 0.6}s`} repeatCount="indefinite" path={path} begin={`${n.dur * 0.2}s`} />
                           </circle>
                           <circle r={3} fill={n.color} opacity="0.5">
-                            {/* @ts-expect-error SVG animateMotion */}
+    
                             <animateMotion dur={`${n.dur * 0.6}s`} repeatCount="indefinite" path={path} begin={`${n.dur * 0.4}s`} />
                           </circle>
                         </>
@@ -303,7 +303,6 @@ export default function Hero() {
                   const path = `M ${CX} ${CY} L ${n.x} ${n.y}`
                   return (
                     <circle key={`in${i}`} r={active ? 3 : 2.5} fill="rgba(255,255,255,0.75)">
-                      {/* @ts-expect-error SVG animateMotion */}
                       <animateMotion dur={`${active ? (n.dur + 0.6) * 0.65 : n.dur + 0.6}s`}
                         repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path={path} />
                     </circle>
