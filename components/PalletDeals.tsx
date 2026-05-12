@@ -70,8 +70,8 @@ export default function PalletDeals() {
         </div>
 
         {/* Delivery note */}
-        <div className="mt-8 flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 text-teal-300 text-sm">
-          <Star size={16} className="text-orange-400 flex-shrink-0"/>
+        <div className="mt-8 flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4 text-teal-300 text-sm">
+          <Star size={16} className="text-orange-400 flex-shrink-0 mt-0.5"/>
           <p>All pallets shipped on a <strong className="text-white">48–72hr pallet network</strong>. Free pallet delivery on orders over <strong className="text-white">£550</strong>. Contact us for export pallet quotes.</p>
         </div>
       </div>

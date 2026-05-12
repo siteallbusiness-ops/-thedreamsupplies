@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { ShoppingCart, Heart, Brain, Sparkles, Package } from 'lucide-react'
+import { ShoppingCart, Heart, Brain, Sparkles, Package, ArrowRight } from 'lucide-react'
 
 interface Product {
   id: string
@@ -123,7 +123,7 @@ export default function FeaturedProducts() {
   return (
     <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-end justify-between mb-6">
+        <div className="flex items-start justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <Brain size={16} className="text-orange-500" />
@@ -132,6 +132,9 @@ export default function FeaturedProducts() {
             <h2 className="sec-title">Featured Products</h2>
             <p className="sec-sub">Handpicked wholesale deals — AI picks marked for you</p>
           </div>
+          <a href="/products" className="flex items-center gap-1 text-teal-700 font-semibold hover:text-teal-900 text-sm flex-shrink-0 mt-1">
+            View all <ArrowRight size={14} />
+          </a>
         </div>
 
         <div className="flex gap-2 overflow-x-auto flex-nowrap mb-6 border-b border-gray-100 pb-3 -mx-4 px-4 scrollbar-none">

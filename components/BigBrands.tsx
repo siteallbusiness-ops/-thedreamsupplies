@@ -24,7 +24,7 @@ export default function BigBrands() {
             <h2 className="sec-title">Big Brands</h2>
             <p className="sec-sub">Genuine branded products at real wholesale prices</p>
           </div>
-          <a href="/products?category=Big+Brands" className="hidden md:flex items-center gap-1.5 text-teal-700 font-semibold hover:text-teal-900 text-sm">
+          <a href="/products?category=Big+Brands" className="flex items-center gap-1.5 text-teal-700 font-semibold hover:text-teal-900 text-sm flex-shrink-0">
             All brands <ArrowRight size={15}/>
           </a>
         </div>

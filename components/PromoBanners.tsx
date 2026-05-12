@@ -11,14 +11,14 @@ export default function PromoBanners() {
           <div className="absolute inset-0 dot-grid pointer-events-none opacity-60" />
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full blur-2xl bg-white/10 animate-pulse-glow pointer-events-none" />
 
-          <div className="relative p-7 flex items-center justify-between gap-4">
-            <div className="space-y-2.5">
+          <div className="relative p-6 sm:p-7 flex items-center justify-between gap-4">
+            <div className="space-y-2.5 flex-1 min-w-0">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
                   <Zap size={10} className="fill-white" /> Flash Sale
                 </span>
               </div>
-              <h3 className="text-2xl font-extrabold text-white leading-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
                 Clearance Lines<br/>Up to 70% Off
               </h3>
               <p className="text-white/70 text-xs max-w-xs">Limited stock — prices slashed to clear. Updated every Monday!</p>
@@ -27,7 +27,7 @@ export default function PromoBanners() {
                 Shop Now <ArrowRight size={12}/>
               </a>
             </div>
-            <div className="text-7xl opacity-20 flex-shrink-0 select-none animate-float">🏷️</div>
+            <div className="text-5xl sm:text-7xl opacity-20 flex-shrink-0 select-none animate-float">🏷️</div>
           </div>
         </div>
 
@@ -38,9 +38,9 @@ export default function PromoBanners() {
           <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full blur-2xl pointer-events-none"
             style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.2) 0%, transparent 70%)' }} />
 
-          <div className="relative p-7 flex items-center justify-between gap-4">
-            <div className="space-y-2.5">
-              <div className="flex items-center gap-2">
+          <div className="relative p-6 sm:p-7 flex items-center justify-between gap-4">
+            <div className="space-y-2.5 flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white/80 text-[10px] font-bold px-2.5 py-1 rounded-full">
                   <Gift size={10} /> New Arrivals
                 </span>
@@ -48,7 +48,7 @@ export default function PromoBanners() {
                   <Brain size={10} /> AI Curated
                 </span>
               </div>
-              <h3 className="text-2xl font-extrabold text-white leading-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
                 Fresh Stock<br/>Landed This Week
               </h3>
               <p className="text-white/55 text-xs max-w-xs">New lines added every week. Our AI flags what fits your buying profile first.</p>
@@ -58,7 +58,7 @@ export default function PromoBanners() {
                 See New In <ArrowRight size={12}/>
               </a>
             </div>
-            <div className="text-7xl opacity-20 flex-shrink-0 select-none animate-float" style={{ animationDelay: '1s' }}>🎁</div>
+            <div className="text-5xl sm:text-7xl opacity-20 flex-shrink-0 select-none animate-float" style={{ animationDelay: '1s' }}>🎁</div>
           </div>
         </div>
 

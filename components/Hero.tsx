@@ -165,7 +165,7 @@ export default function Hero() {
         style={{ background: `radial-gradient(circle,${s.accentTo}15 0%,transparent 65%)`, transition: 'background 0.8s ease' }} />
 
       {/* ── Main grid ── */}
-      <div className="relative max-w-7xl mx-auto px-4 py-12 md:py-20 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 py-8 md:py-20 grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
 
         {/* ══ LEFT: text ══ */}
         <div key={animKey} className="text-white space-y-5">

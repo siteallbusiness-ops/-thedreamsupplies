@@ -17,7 +17,7 @@ export default function Newsletter() {
         style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.10) 0%, transparent 70%)' }} />
 
       <div className="relative max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left */}
           <div className="text-white">

@@ -60,7 +60,7 @@ export default function Testimonials() {
         </div>
 
         {/* Trust bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-gray-400">
           {['50,000+ Active Buyers','3,800+ Verified Reviews','Next-Day UK Delivery','AI-Matched Products'].map(t => (
             <div key={t} className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />

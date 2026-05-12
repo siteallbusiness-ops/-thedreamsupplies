@@ -357,9 +357,9 @@ function ProductsPageContent() {
           )}
 
           <div className="flex-1 min-w-0">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
               <button onClick={() => setSidebarOpen(true)}
-                className="lg:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-orange-300 transition-colors">
+                className="lg:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-orange-300 transition-colors flex-shrink-0">
                 <Filter size={14} /> Filters
                 {activeFilters.length > 0 && (
                   <span className="w-5 h-5 rounded-full text-[11px] font-bold text-white flex items-center justify-center"
@@ -371,29 +371,29 @@ function ProductsPageContent() {
 
               <div className="flex-1 min-w-0">
                 {data && !loading && (
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     <span className="font-semibold text-gray-900">{data.total.toLocaleString()}</span> products
                     {category !== 'All' && <> in <span className="font-semibold text-orange-600">{category}</span></>}
                   </p>
                 )}
               </div>
 
-              <div className="flex items-center gap-2 ml-auto">
+              <div className="flex items-center gap-2 ml-auto flex-shrink-0">
                 <div className="relative">
                   <select value={sortBy} onChange={e => { setSortBy(e.target.value); setPage(1) }}
-                    className="appearance-none bg-white border border-gray-200 rounded-lg pl-3 pr-8 py-2 text-sm text-gray-700 focus:outline-none focus:border-orange-400 cursor-pointer">
+                    className="appearance-none bg-white border border-gray-200 rounded-lg pl-2.5 pr-7 py-2 text-xs sm:text-sm text-gray-700 focus:outline-none focus:border-orange-400 cursor-pointer max-w-[130px] sm:max-w-none">
                     {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
-                  <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  <ChevronDown size={13} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                 </div>
                 <div className="flex bg-white border border-gray-200 rounded-lg overflow-hidden">
                   <button onClick={() => setView('grid')}
                     className={`p-2 transition-colors ${view === 'grid' ? 'bg-orange-500 text-white' : 'text-gray-400 hover:text-gray-700'}`}>
-                    <Grid3X3 size={16} />
+                    <Grid3X3 size={15} />
                   </button>
                   <button onClick={() => setView('list')}
                     className={`p-2 transition-colors ${view === 'list' ? 'bg-orange-500 text-white' : 'text-gray-400 hover:text-gray-700'}`}>
-                    <List size={16} />
+                    <List size={15} />
                   </button>
                 </div>
               </div>

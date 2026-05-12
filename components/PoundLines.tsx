@@ -36,7 +36,7 @@ export default function PoundLines() {
   return (
     <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-start justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <Tag size={20} className="text-orange-500" />
@@ -45,7 +45,7 @@ export default function PoundLines() {
             <h2 className="sec-title">Pound Lines & More</h2>
             <p className="sec-sub">Incredible wholesale prices — perfect for pound shops, market stalls & online sellers</p>
           </div>
-          <a href="/products?category=Clearance" className="hidden md:flex items-center gap-1.5 text-teal-700 font-semibold hover:text-teal-900 text-sm">
+          <a href="/products?category=Clearance" className="flex items-center gap-1.5 text-teal-700 font-semibold hover:text-teal-900 text-sm flex-shrink-0 mt-1">
             View all <ArrowRight size={15} />
           </a>
         </div>

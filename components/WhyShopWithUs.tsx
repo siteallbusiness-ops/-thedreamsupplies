@@ -28,7 +28,7 @@ export default function WhyShopWithUs() {
             <Brain size={12} className="text-pink-400" />
             AI-Driven Platform
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3">
             Why Choose{' '}
             <span className="gradient-text">Dream Distribution?</span>
           </h2>
@@ -64,7 +64,7 @@ export default function WhyShopWithUs() {
           <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-violet-500/20" />
           <div className="absolute inset-0 dot-grid-dark pointer-events-none" />
           <div className="absolute inset-0 border border-white/10 rounded-2xl" />
-          <div className="relative p-8 md:p-12 text-white text-center">
+          <div className="relative p-5 sm:p-8 md:p-12 text-white text-center">
             <h3 className="text-2xl md:text-3xl font-extrabold mb-3">Ready to Start Saving?</h3>
             <p className="text-white/60 mb-8 max-w-xl mx-auto text-sm">
               Open your free account in minutes. Our AI understands your requirements and delivers the right products — no minimum order, no monthly fees, no fuss.
