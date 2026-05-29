@@ -11,7 +11,7 @@ const products = [
   { label: 'Food & Drink',       href: '/products?category=Food+%26+Drink' },
   { label: 'Pet & Leisure',      href: '/products?category=Pet+%26+Leisure' },
   { label: 'Party & Seasonal',   href: '/products?category=Party+%26+Seasonal' },
-  { label: 'Pallet Deals',       href: '/products?category=Pallet+Deals' },
+  { label: 'Pallet Deals',       href: '/pallet-enquiry' },
   { label: 'Big Brands',         href: '/products?category=Big+Brands' },
   { label: 'SALE',               href: '/products?category=Clearance', sale: true },
 ]

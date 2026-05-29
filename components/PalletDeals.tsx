@@ -30,8 +30,8 @@ export default function PalletDeals() {
             <h2 className="text-2xl md:text-3xl font-extrabold text-white">Pallet Deals</h2>
             <p className="text-teal-300 text-sm mt-1">Massive savings on bulk pallets — ideal for retailers &amp; resellers</p>
           </div>
-          <a href="/products?category=Pallet+Deals" className="hidden md:flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-semibold text-sm">
-            All pallets <ArrowRight size={15}/>
+          <a href="/pallet-enquiry" className="hidden md:flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-semibold text-sm">
+            Get a quote <ArrowRight size={15}/>
           </a>
         </div>
 
@@ -61,9 +61,9 @@ export default function PalletDeals() {
                 <Truck size={12}/> Free delivery (mainland UK)
               </div>
 
-              <a href="/products?category=Pallet+Deals"
+              <a href="/pallet-enquiry"
                 className="flex items-center justify-center gap-2 w-full bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold py-2.5 rounded-lg transition-colors">
-                Order Pallet <ArrowRight size={13}/>
+                Enquire Now <ArrowRight size={13}/>
               </a>
             </div>
           ))}

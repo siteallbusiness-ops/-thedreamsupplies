@@ -7,6 +7,7 @@ import {
   Brain, ShoppingCart, Filter, ChevronRight,
   Package, AlertCircle
 } from 'lucide-react'
+import { useCart } from '@/context/CartContext'
 
 interface Product {
   id: string
@@ -40,6 +41,10 @@ const CATEGORIES = [
 
 const PRICE_RANGES = [
   { label: 'Any Price', value: '' },
+  { label: 'Under 50p', value: '0-0.5' },
+  { label: 'Under 75p', value: '0-0.75' },
+  { label: 'Under £1', value: '0-1' },
+  { label: 'Under £2', value: '0-2' },
   { label: 'Under £5', value: '0-5' },
   { label: '£5 – £20', value: '5-20' },
   { label: '£20 – £100', value: '20-100' },
@@ -57,12 +62,15 @@ const SORT_OPTIONS = [
 function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
   const [added, setAdded] = useState(false)
   const [imgError, setImgError] = useState(false)
+  const { addItem, items: cartItems } = useCart()
+  const inCart = cartItems.some(i => i.id === p.id)
   const discount = p.compareAtPrice && p.compareAtPrice > p.price
     ? Math.round((1 - p.price / p.compareAtPrice) * 100)
     : null
 
   const handleAdd = (e: React.MouseEvent) => {
     e.preventDefault()
+    addItem({ id: p.id, name: p.name, price: p.price, imageUrl: p.imageUrl, vendor: p.vendor })
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
   }
@@ -161,9 +169,11 @@ function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
 function ProductsPageContent() {
   const searchParams = useSearchParams()
   const initCategory = searchParams.get('category') || 'All'
+  const initPrice = searchParams.get('price') || ''
   const [category, setCategory] = useState(initCategory)
+  const { totalItems } = useCart()
   const [sortBy, setSortBy] = useState('featured')
-  const [priceRange, setPriceRange] = useState('')
+  const [priceRange, setPriceRange] = useState(initPrice)
   const [search, setSearch] = useState('')
   const [searchInput, setSearchInput] = useState('')
   const [inStockOnly, setInStockOnly] = useState(false)
@@ -320,10 +330,12 @@ function ProductsPageContent() {
           </form>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link href="/login" className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 hover:text-teal-900 transition-colors">Account</Link>
-            <Link href="/" className="relative">
+            <Link href="/cart" className="relative">
               <ShoppingCart size={22} className="text-gray-400 hover:text-teal-900 transition-colors" />
               <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full flex items-center justify-center font-bold text-[10px] text-white"
-                style={{ background: 'linear-gradient(135deg,#ec4899,#f472b6)' }}>0</span>
+                style={{ background: 'linear-gradient(135deg,#ec4899,#f472b6)' }}>
+                {totalItems > 9 ? '9+' : totalItems}
+              </span>
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { ShoppingCart, Heart, Brain, Sparkles, Package, ArrowRight } from 'lucide-react'
+import { useCart } from '@/context/CartContext'
 
 interface Product {
   id: string
@@ -19,7 +20,7 @@ const TABS = ['All', 'Home & Garden', 'Health & Beauty', 'Toys & Games', 'Food &
 function MiniCard({ p, index, wishlisted, carted, onWishlist, onCart }: {
   p: Product; index: number
   wishlisted: boolean; carted: boolean
-  onWishlist: () => void; onCart: () => void
+  onWishlist: () => void; onCart: (p: Product) => void
 }) {
   const [imgErr, setImgErr] = useState(false)
   const discount = p.compareAtPrice && p.compareAtPrice > p.price
@@ -59,7 +60,7 @@ function MiniCard({ p, index, wishlisted, carted, onWishlist, onCart }: {
         </button>
 
         <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button onClick={onCart}
+          <button onClick={() => onCart(p)}
             className={`text-[11px] px-2.5 py-1 rounded-full font-bold flex items-center gap-1 ${carted ? 'bg-emerald-600 text-white' : 'bg-teal-700 text-white'}`}>
             <ShoppingCart size={10} />{carted ? 'Added' : 'Add'}
           </button>
@@ -88,7 +89,8 @@ export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [wishlist, setWishlist] = useState<string[]>([])
-  const [carted, setCarted] = useState<string[]>([])
+  const { addItem, items: cartItems } = useCart()
+  const carted = cartItems.map(i => i.id)
 
   const fetchForTab = useCallback(async (t: string) => {
     setLoading(true)
@@ -186,7 +188,7 @@ export default function FeaturedProducts() {
                 wishlisted={wishlist.includes(p.id)}
                 carted={carted.includes(p.id)}
                 onWishlist={() => setWishlist(w => w.includes(p.id) ? w.filter(x => x !== p.id) : [...w, p.id])}
-                onCart={() => setCarted(c => c.includes(p.id) ? c.filter(x => x !== p.id) : [...c, p.id])}
+                onCart={(prod) => addItem({ id: prod.id, name: prod.name, price: prod.price, imageUrl: prod.imageUrl, vendor: prod.vendor })}
               />
             ))}
           </div>

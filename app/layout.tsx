@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import AICursor from '@/components/AICursor'
+import Providers from '@/components/Providers'
 
 export const metadata: Metadata = {
   title: 'Dream Distribution – AI-Powered Wholesale | No Minimum Order',
@@ -11,8 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-white text-gray-900">
-        <AICursor />
-        {children}
+        <Providers>
+          <AICursor />
+          {children}
+        </Providers>
       </body>
     </html>
   )

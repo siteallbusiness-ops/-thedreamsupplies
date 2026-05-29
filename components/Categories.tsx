@@ -12,7 +12,7 @@ const cats = [
   { name: 'Pet & Leisure',    emoji: '🐾', count: '150+',      grad: 'from-yellow-500 to-orange-600',glow: 'rgba(251,191,36,0.4)', cat: 'Pet & Leisure',    aiTag: null },
   { name: 'Party & Seasonal', emoji: '🎉', count: '240+',      grad: 'from-red-500 to-rose-700',     glow: 'rgba(239,68,68,0.4)',  cat: 'Party & Seasonal', aiTag: 'Seasonal' },
   { name: 'Clearance',        emoji: '🏷️', count: 'Save 70%',  grad: 'from-cyan-500 to-teal-700',   glow: 'rgba(6,182,212,0.4)',  cat: 'Clearance',        aiTag: 'AI Deals' },
-  { name: 'Pallet Deals',     emoji: '📦', count: '50+',       grad: 'from-slate-600 to-slate-800',  glow: 'rgba(100,116,139,0.4)',cat: 'Pallet Deals',     aiTag: 'Bulk Value' },
+  { name: 'Pallet Deals',     emoji: '📦', count: 'Enquire',   grad: 'from-slate-600 to-slate-800',  glow: 'rgba(100,116,139,0.4)',cat: 'Pallet Deals',     aiTag: 'Bulk Value', href: '/pallet-enquiry' },
   { name: 'Big Brands',       emoji: '⭐', count: '200+',      grad: 'from-teal-700 to-teal-900',    glow: 'rgba(15,23,42,0.5)',   cat: 'Big Brands',       aiTag: 'Verified' },
   { name: 'Fast Sellers',     emoji: '🔥', count: 'Top picks', grad: 'from-orange-600 to-red-700',   glow: 'rgba(234,88,12,0.5)',  cat: 'Fast Sellers',     aiTag: 'Hot' },
 ]
@@ -52,7 +52,7 @@ export default function Categories() {
           {cats.map((cat, i) => (
             <Link
               key={cat.name}
-              href={`/products?category=${encodeURIComponent(cat.cat)}`}
+              href={(cat as { href?: string }).href ?? `/products?category=${encodeURIComponent(cat.cat)}`}
               className="group relative rounded-2xl overflow-hidden cursor-pointer animate-scale-in ai-scan-overlay"
               style={{
                 animationDelay: `${i * 50}ms`,

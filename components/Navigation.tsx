@@ -71,11 +71,12 @@ const nav = [
   {
     label: 'Food & Drink', href: '/products?category=Food+%26+Drink',
     sub: [
-      { label: 'Sweets & Candy',  href: '/products?category=Food+%26+Drink' },
-      { label: 'Crisps & Snacks', href: '/products?category=Food+%26+Drink' },
-      { label: 'Biscuits',        href: '/products?category=Food+%26+Drink' },
-      { label: 'Drinks & Juices', href: '/products?category=Food+%26+Drink' },
-      { label: 'Confectionery',   href: '/products?category=Food+%26+Drink' },
+      { label: 'Sweets & Candy',   href: '/products?category=Food+%26+Drink' },
+      { label: 'Crisps & Snacks',  href: '/products?category=Food+%26+Drink' },
+      { label: 'Biscuits',         href: '/products?category=Food+%26+Drink' },
+      { label: 'Drinks & Juices',  href: '/products?category=Food+%26+Drink' },
+      { label: 'Confectionery',    href: '/products?category=Food+%26+Drink' },
+      { label: 'Refill Chargers',  href: '/products?category=Refill+Chargers' },
     ],
   },
   {
@@ -109,11 +110,12 @@ const nav = [
   },
   {
     label: 'Pallet Deals', badge: 'BULK', color: 'text-teal-300',
-    href: '/products?category=Pallet+Deals',
+    href: '/pallet-enquiry',
     sub: [
-      { label: 'Mixed Pallets',           href: '/products?category=Pallet+Deals' },
-      { label: 'Single Category Pallets', href: '/products?category=Pallet+Deals' },
-      { label: 'Clearance Pallets',       href: '/products?category=Clearance' },
+      { label: 'Mixed Pallets',           href: '/pallet-enquiry' },
+      { label: 'Single Category Pallets', href: '/pallet-enquiry' },
+      { label: 'Clearance Pallets',       href: '/pallet-enquiry' },
+      { label: 'Get a Quote',             href: '/pallet-enquiry' },
     ],
   },
   {

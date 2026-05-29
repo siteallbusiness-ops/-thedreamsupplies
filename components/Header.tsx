@@ -2,10 +2,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Search, ShoppingCart, User, Phone, Clock, Heart, Menu, X, Brain } from 'lucide-react'
+import { useCart } from '@/context/CartContext'
 
 export default function Header() {
   const [search, setSearch] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { totalItems } = useCart()
 
   return (
     <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
@@ -56,11 +58,13 @@ export default function Header() {
           <Link href="/register" className="hidden md:flex flex-col items-center text-gray-400 hover:text-teal-900 transition-colors">
             <Heart size={20} /><span className="text-[10px] mt-0.5">Register</span>
           </Link>
-          <Link href="/products" className="flex flex-col items-center text-gray-400 hover:text-teal-900 transition-colors relative">
+          <Link href="/cart" className="flex flex-col items-center text-gray-400 hover:text-teal-900 transition-colors relative">
             <div className="relative">
               <ShoppingCart size={20} />
               <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full flex items-center justify-center font-bold text-[10px] text-white"
-                style={{ background: 'linear-gradient(135deg, #ec4899, #f472b6)' }}>0</span>
+                style={{ background: 'linear-gradient(135deg, #ec4899, #f472b6)' }}>
+                {totalItems > 9 ? '9+' : totalItems}
+              </span>
             </div>
             <span className="text-[10px] mt-0.5">Basket</span>
           </Link>

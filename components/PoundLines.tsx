@@ -4,6 +4,7 @@ import { Tag, ArrowRight } from 'lucide-react'
 const tiers = [
   {
     price: '50p', label: 'Lines', emoji: '🪙',
+    href: '/products?price=0-0.5',
     desc: 'Great value products at just 50p each',
     count: '200+ items',
     bg: 'from-teal-600 to-teal-800',
@@ -11,6 +12,7 @@ const tiers = [
   },
   {
     price: '75p', label: 'Lines', emoji: '💰',
+    href: '/products?price=0-0.75',
     desc: 'Brilliant buys at 75p each',
     count: '150+ items',
     bg: 'from-teal-700 to-teal-900',
@@ -18,6 +20,7 @@ const tiers = [
   },
   {
     price: '£1', label: 'Lines', emoji: '🏷️',
+    href: '/products?price=0-1',
     desc: 'Best-selling pound lines',
     count: '400+ items',
     bg: 'from-orange-500 to-orange-700',
@@ -25,6 +28,7 @@ const tiers = [
   },
   {
     price: '£2', label: 'Lines', emoji: '🎯',
+    href: '/products?price=0-2',
     desc: 'Premium value at £2 each',
     count: '300+ items',
     bg: 'from-orange-600 to-red-700',
@@ -82,7 +86,7 @@ export default function PoundLines() {
                     {item}
                   </div>
                 ))}
-                <a href="/products?category=Clearance"
+                <a href={tier.href}
                   className="flex items-center justify-center gap-2 w-full mt-3 bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold py-2.5 rounded-lg transition-colors">
                   Shop {tier.price} Lines <ArrowRight size={13} />
                 </a>

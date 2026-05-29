@@ -57,6 +57,7 @@ const SPECIAL_TAG_MAP: Record<string, string> = {
   'Big Brands': 'Top Brands',
   'Fast Sellers': 'Fast Sellers',
   'Featured': 'Featured Wholesale Products',
+  'Refill Chargers': 'Category_DRINKS/CREAM CHARGERS',
 }
 
 const PAGE_SIZE = 24
