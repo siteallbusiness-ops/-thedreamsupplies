@@ -22,6 +22,8 @@ interface Product {
   productUrl: string
   variantCount: number
   aiPick: boolean
+  description?: string
+  accountRequired?: boolean
 }
 
 interface ApiResponse {
@@ -94,6 +96,9 @@ function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
                 </span>
               )}
               <div className="font-semibold text-gray-900 text-sm line-clamp-2">{p.name}</div>
+              {p.description && (
+                <p className="text-xs text-red-600 mt-1 leading-snug">{p.description}</p>
+              )}
               <div className="text-xs text-gray-400 mt-0.5">{p.vendor}</div>
             </div>
             <div className="flex-shrink-0 text-right">
@@ -110,10 +115,17 @@ function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
                 -{discount}%
               </span>
             )}
-            <button onClick={handleAdd}
-              className={`ml-auto px-4 py-1.5 rounded-lg text-xs font-semibold text-white transition-all ${added ? 'bg-emerald-500' : 'bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90'}`}>
-              {added ? 'Added ✓' : 'Add to Basket'}
-            </button>
+            {p.accountRequired ? (
+              <Link href="/login"
+                className="ml-auto px-4 py-1.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90 transition-all">
+                Sign in to purchase
+              </Link>
+            ) : (
+              <button onClick={handleAdd}
+                className={`ml-auto px-4 py-1.5 rounded-lg text-xs font-semibold text-white transition-all ${added ? 'bg-emerald-500' : 'bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90'}`}>
+                {added ? 'Added ✓' : 'Add to Basket'}
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -148,7 +160,10 @@ function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
       </div>
       <div className="p-3 flex flex-col flex-1">
         <div className="text-[11px] text-gray-400 mb-1">{p.vendor}</div>
-        <div className="text-sm font-semibold text-gray-900 line-clamp-2 flex-1 leading-snug">{p.name}</div>
+        <div className="text-sm font-semibold text-gray-900 line-clamp-2 leading-snug">{p.name}</div>
+        {p.description && (
+          <p className="text-[11px] text-red-600 mt-1 leading-snug">{p.description}</p>
+        )}
         <div className="mt-2 flex items-end justify-between">
           <div>
             <div className="font-black text-teal-900 text-lg">£{p?.price}</div>
@@ -156,10 +171,17 @@ function ProductCard({ p, view }: { p: Product; view: 'grid' | 'list' }) {
               <div className="text-xs text-gray-400 line-through">£{p?.compareAtPrice}</div>
             )}
           </div>
-          <button onClick={handleAdd}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-all ${added ? 'bg-emerald-500' : 'bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90'}`}>
-            {added ? '✓' : <ShoppingCart size={14} />}
-          </button>
+          {p.accountRequired ? (
+            <Link href="/login"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90 transition-all">
+              Sign in
+            </Link>
+          ) : (
+            <button onClick={handleAdd}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-all ${added ? 'bg-emerald-500' : 'bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90'}`}>
+              {added ? '✓' : <ShoppingCart size={14} />}
+            </button>
+          )}
         </div>
       </div>
     </div>

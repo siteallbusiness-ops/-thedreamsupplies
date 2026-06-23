@@ -14,6 +14,16 @@ interface Product {
   imageUrl: string
   productUrl: string
   variantCount: number
+  description: string
+}
+
+const N2O_ACCOUNT_DESCRIPTION = '(You must have an account to purchase this product)'
+
+function isN2OProduct(p: Pick<Product, 'name' | 'tags'>): boolean {
+  const name = p.name.toLowerCase()
+  return name.includes('n2o') ||
+    name.includes('nitrous oxide') ||
+    p.tags.some(t => t.includes('CREAM CHARGERS'))
 }
 
 function normalize(raw: unknown): Product {
@@ -22,7 +32,7 @@ function normalize(raw: unknown): Product {
   const tags: string[] = Array.isArray(tagsRaw)
     ? (tagsRaw as unknown[]).map(String)
     : String(tagsRaw ?? '').split(',').map(s => s.trim()).filter(Boolean)
-  return {
+  const base = {
     id: String(r.id ?? ''),
     name: String(r.name ?? ''),
     vendor: String(r.vendor ?? ''),
@@ -35,7 +45,12 @@ function normalize(raw: unknown): Product {
     imageUrl: String(r.imageUrl ?? ''),
     productUrl: String(r.productUrl ?? ''),
     variantCount: Number(r.variantCount ?? 0),
+    description: String(r.description ?? ''),
   }
+  if (isN2OProduct(base)) {
+    base.description = N2O_ACCOUNT_DESCRIPTION
+  }
+  return base
 }
 
 const allProducts: Product[] = (productsData as unknown[]).map(normalize)
@@ -161,6 +176,8 @@ export async function GET(req: NextRequest) {
     productUrl: p.productUrl,
     variantCount: p.variantCount,
     aiPick: p.tags.includes(TAG_FEATURED) || p.tags.includes(TAG_FAST_SELLERS),
+    description: p.description,
+    accountRequired: isN2OProduct(p),
   }))
 
   return NextResponse.json({ items, total, page, pageSize, totalPages })
