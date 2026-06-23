@@ -170,12 +170,13 @@ function ProductsPageContent() {
   const searchParams = useSearchParams()
   const initCategory = searchParams.get('category') || 'All'
   const initPrice = searchParams.get('price') || ''
+  const initSearch = searchParams.get('search') || ''
   const [category, setCategory] = useState(initCategory)
   const { totalItems } = useCart()
   const [sortBy, setSortBy] = useState('featured')
   const [priceRange, setPriceRange] = useState(initPrice)
-  const [search, setSearch] = useState('')
-  const [searchInput, setSearchInput] = useState('')
+  const [search, setSearch] = useState(initSearch)
+  const [searchInput, setSearchInput] = useState(initSearch)
   const [inStockOnly, setInStockOnly] = useState(false)
   const [aiOnly, setAiOnly] = useState(false)
   const [view, setView] = useState<'grid' | 'list'>('grid')

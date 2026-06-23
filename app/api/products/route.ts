@@ -51,12 +51,16 @@ const TYPE_MAP: Record<string, string> = {
   'Clothing': 'CLOTHING',
 }
 
+const TAG_FAST_SELLERS = 'Category_Fast Sellers'
+const TAG_FEATURED = 'Category_Featured Wholesale Products'
+const TAG_TOP_BRANDS = 'Category_Top Brands'
+
 const SPECIAL_TAG_MAP: Record<string, string> = {
   'Pallet Deals': 'Category_Pallet Deals',
   'Clearance': 'Category_Clearance',
-  'Big Brands': 'Top Brands',
-  'Fast Sellers': 'Fast Sellers',
-  'Featured': 'Featured Wholesale Products',
+  'Big Brands': TAG_TOP_BRANDS,
+  'Fast Sellers': TAG_FAST_SELLERS,
+  'Featured': TAG_FEATURED,
   'Refill Chargers': 'Category_DRINKS/CREAM CHARGERS',
 }
 
@@ -112,8 +116,8 @@ export async function GET(req: NextRequest) {
   if (aiOnly) {
     products = products.filter(p =>
       (p.compareAtPrice && p.compareAtPrice > p.price) ||
-      p.tags.includes('Featured Wholesale Products') ||
-      p.tags.includes('Fast Sellers')
+      p.tags.includes(TAG_FEATURED) ||
+      p.tags.includes(TAG_FAST_SELLERS)
     )
   }
 
@@ -133,10 +137,10 @@ export async function GET(req: NextRequest) {
   } else {
     // featured: featured/fast-sellers first, then rest
     products.sort((a, b) => {
-      const scoreA = (a.tags.includes('Featured Wholesale Products') ? 2 : 0) +
-                     (a.tags.includes('Fast Sellers') ? 1 : 0)
-      const scoreB = (b.tags.includes('Featured Wholesale Products') ? 2 : 0) +
-                     (b.tags.includes('Fast Sellers') ? 1 : 0)
+      const scoreA = (a.tags.includes(TAG_FEATURED) ? 2 : 0) +
+                     (a.tags.includes(TAG_FAST_SELLERS) ? 1 : 0)
+      const scoreB = (b.tags.includes(TAG_FEATURED) ? 2 : 0) +
+                     (b.tags.includes(TAG_FAST_SELLERS) ? 1 : 0)
       return scoreB - scoreA
     })
   }
@@ -156,7 +160,7 @@ export async function GET(req: NextRequest) {
     imageUrl: p.imageUrl,
     productUrl: p.productUrl,
     variantCount: p.variantCount,
-    aiPick: p.tags.includes('Featured Wholesale Products') || p.tags.includes('Fast Sellers'),
+    aiPick: p.tags.includes(TAG_FEATURED) || p.tags.includes(TAG_FAST_SELLERS),
   }))
 
   return NextResponse.json({ items, total, page, pageSize, totalPages })

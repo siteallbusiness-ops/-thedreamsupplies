@@ -36,7 +36,7 @@ export default function OrderFailedPage() {
               className="flex items-center gap-3 px-4 py-3 rounded-lg bg-teal-50 hover:bg-teal-100 transition-colors text-left">
               <Phone size={16} className="text-teal-600 flex-shrink-0" />
               <div>
-                <p className="text-sm font-semibold text-teal-900">0116 2544 988</p>
+                <p className="text-sm font-semibold text-teal-900">0151 388 0857</p>
                 <p className="text-[11px] text-gray-400">Mon–Fri 8:00am–4:00pm</p>
               </div>
             </a>

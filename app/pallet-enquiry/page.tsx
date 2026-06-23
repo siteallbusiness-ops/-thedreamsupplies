@@ -95,7 +95,7 @@ export default function PalletEnquiryPage() {
               <a href="tel:01162544988"
                 className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
                 style={{ background: 'linear-gradient(135deg, #f97316, #ec4899)' }}>
-                <Phone size={14} /> Call Us: 0116 2544 988
+                <Phone size={14} /> Call Us: 0151 388 0857
               </a>
               <Link href="/products"
                 className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition-colors">
@@ -215,7 +215,7 @@ export default function PalletEnquiryPage() {
                   className="flex items-center gap-3 p-3 rounded-lg bg-teal-50 hover:bg-teal-100 transition-colors mb-3">
                   <Phone size={16} className="text-teal-600 flex-shrink-0" />
                   <div>
-                    <p className="text-sm font-semibold text-teal-900">0116 2544 988</p>
+                    <p className="text-sm font-semibold text-teal-900">0151 388 0857</p>
                     <p className="text-[11px] text-gray-400">Mon–Fri 8:00am–4:00pm</p>
                   </div>
                 </a>

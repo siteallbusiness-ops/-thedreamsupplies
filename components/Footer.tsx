@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin, Brain } from 'lucide-react'
+import { Phone, Mail, MapPin, Brain } from 'lucide-react'
 
 const products = [
   { label: 'Pound Lines & More', href: '/products?category=Clearance' },
@@ -48,21 +48,14 @@ export default function Footer() {
             <div className="space-y-2.5 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin size={15} className="text-teal-500 mt-0.5 flex-shrink-0" />
-                Dream Distribution Ltd, Meridian Business Park, Leicester, LE19 1WZ
+                Dream Distribution Ltd, Unit 6, Broadway Central, Lydia Becker Way, OL9 9FP
               </div>
               <a href="tel:01162544988" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
-                <Phone size={14} className="text-teal-500" />0116 2544 988
+                <Phone size={14} className="text-teal-500" />0151 388 0857
               </a>
               <a href="mailto:hello@dreamdistribution.co.uk" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
                 <Mail size={14} className="text-teal-500" />hello@dreamdistribution.co.uk
               </a>
-            </div>
-            <div className="flex items-center gap-2.5 mt-6">
-              {[Facebook, Twitter, Instagram, Youtube, Linkedin].map((Icon, i) => (
-                <span key={i} className="w-9 h-9 glass-card rounded-full flex items-center justify-center">
-                  <Icon size={14} className="text-white/40" />
-                </span>
-              ))}
             </div>
           </div>
 

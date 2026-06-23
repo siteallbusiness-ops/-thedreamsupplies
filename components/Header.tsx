@@ -5,7 +5,6 @@ import { Search, ShoppingCart, User, Phone, Clock, Heart, Menu, X, Brain } from 
 import { useCart } from '@/context/CartContext'
 
 export default function Header() {
-  const [search, setSearch] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
   const { totalItems } = useCart()
 
@@ -19,7 +18,7 @@ export default function Header() {
             <span className="text-white/60 font-medium">AI-Powered Distribution Platform</span>
           </div>
           <div className="flex items-center gap-6 text-white/50">
-            <span className="flex items-center gap-1.5"><Phone size={10} className="text-orange-400" /> 0116 2544 988</span>
+            <span className="flex items-center gap-1.5"><Phone size={10} className="text-orange-400" /> 0151 388 0857</span>
             <span className="flex items-center gap-1.5"><Clock size={10} className="text-orange-400" /> Open Mon–Fri 8:00am–4:00pm</span>
           </div>
         </div>
@@ -37,18 +36,23 @@ export default function Header() {
         </Link>
 
         {/* Search */}
-        <div className="flex-1 flex shadow-sm">
+        <form action="/products" method="GET" role="search" className="flex-1 flex shadow-sm">
           <input
-            value={search}
-            onChange={e => setSearch(e.target.value)}
+            name="search"
+            type="search"
+            autoComplete="off"
             placeholder="Search 10,000+ wholesale products…"
             className="flex-1 border border-gray-200 rounded-l-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 transition-all"
           />
-          <button className="bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90 text-white px-5 rounded-r-xl flex items-center gap-2 transition-opacity">
+          <button
+            type="submit"
+            aria-label="Search products"
+            className="bg-gradient-to-r from-orange-500 to-pink-600 hover:opacity-90 text-white px-5 rounded-r-xl flex items-center gap-2 transition-opacity"
+          >
             <Search size={16} />
             <span className="hidden sm:block text-sm font-semibold">Search</span>
           </button>
-        </div>
+        </form>
 
         {/* Actions */}
         <div className="flex items-center gap-3 flex-shrink-0">
