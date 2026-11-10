@@ -6,7 +6,7 @@ const reasons = [
   { icon: Globe,       title: 'AI-Powered Product Matching',  desc: 'Tell us what you need and our AI understands your requirements — surfacing the right products from 10,000+ lines instantly.', color: 'from-pink-500/20 to-pink-600/10',   border: 'border-pink-500/20',   icon_c: 'text-pink-400',   ai: true },
   { icon: RefreshCw,   title: 'Easy 30-Day Returns',          desc: 'Not happy with an order? No problem. Our simple returns process means hassle-free refunds or replacements.',                  color: 'from-emerald-500/20 to-emerald-600/10', border: 'border-emerald-500/20', icon_c: 'text-emerald-400' },
   { icon: Users,       title: 'Smart Trade Accounts',         desc: 'Open a free trade account — our AI learns your buying patterns to offer personalised pricing, deals, and reorder reminders.', color: 'from-blue-500/20 to-blue-600/10',   border: 'border-blue-500/20',   icon_c: 'text-blue-400',   ai: true },
-  { icon: Headphones,  title: 'Expert UK Support',            desc: 'Our Leicester-based team is available Mon–Fri 8am–4pm. Friendly, knowledgeable and quick to respond.',                        color: 'from-rose-500/20 to-rose-600/10',   border: 'border-rose-500/20',   icon_c: 'text-rose-400' },
+  { icon: Headphones,  title: 'Expert UK Support',            desc: 'Our Oldham-based team is available Mon–Fri 8am–4pm. Friendly, knowledgeable and quick to respond.',                           color: 'from-rose-500/20 to-rose-600/10',   border: 'border-rose-500/20',   icon_c: 'text-rose-400' },
 ]
 
 export default function WhyShopWithUs() {

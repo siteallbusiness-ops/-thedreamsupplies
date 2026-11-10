@@ -48,7 +48,7 @@ export default function Footer() {
             <div className="space-y-2.5 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin size={15} className="text-teal-500 mt-0.5 flex-shrink-0" />
-                Dream Distribution Ltd, Unit 6, Broadway Central, Lydia Becker Way, OL9 9FP
+                Dream Distribution Ltd, Portfolio Place, 498 Broadway, Oldham, United Kingdom, OL9 9PY
               </div>
               <a href="tel:01162544988" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
                 <Phone size={14} className="text-teal-500" />0151 388 0857
