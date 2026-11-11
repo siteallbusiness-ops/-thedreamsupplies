@@ -53,8 +53,8 @@ export default function Footer() {
               <a href="tel:01162544988" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
                 <Phone size={14} className="text-teal-500" />0151 388 0857
               </a>
-              <a href="mailto:hello@dreamdistribution.co.uk" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
-                <Mail size={14} className="text-teal-500" />hello@dreamdistribution.co.uk
+              <a href="mailto:info@thedreamsupplies.com" className="flex items-center gap-3 hover:text-teal-400 transition-colors">
+                <Mail size={14} className="text-teal-500" />info@thedreamsupplies.com
               </a>
             </div>
           </div>

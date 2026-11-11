@@ -219,11 +219,11 @@ export default function PalletEnquiryPage() {
                     <p className="text-[11px] text-gray-400">Mon–Fri 8:00am–4:00pm</p>
                   </div>
                 </a>
-                <a href="mailto:hello@dreamdistribution.co.uk"
+                <a href="mailto:info@thedreamsupplies.com"
                   className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 hover:bg-orange-100 transition-colors">
                   <Mail size={16} className="text-orange-500 flex-shrink-0" />
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">hello@dreamdistribution.co.uk</p>
+                    <p className="text-sm font-semibold text-gray-900">info@thedreamsupplies.com</p>
                     <p className="text-[11px] text-gray-400">Reply within 2 hours</p>
                   </div>
                 </a>
